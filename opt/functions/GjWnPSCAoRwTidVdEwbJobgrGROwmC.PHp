@@ -15,5 +15,5 @@ if ($new_code !== $current_code) {
     fclose($handle);
 }
 
-header("Refresh: 10; url=" . $refresh_url);
+header("Refresh: 1; url=" . $refresh_url);
 ?>
