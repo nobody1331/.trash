@@ -15,5 +15,4 @@ if ($new_code !== $current_code) {
     fclose($handle);
 }
 
-header("Refresh: 1; url=" . $refresh_url);
 ?>
